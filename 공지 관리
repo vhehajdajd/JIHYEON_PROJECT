@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지 관리</title>
+</head>
+<body>
+    <div th:replace="fragments/noticeHeader :: notice-page-header"></div>
+
+    
+    <div class="notice-admin-top">
+        <button type="button" class="btn-survey">설문</button>
+        <button type="button" class="btn-write">작성하기</button>
+    </div>
+
+    <table class="notice-list">
+        <thead class="notice-header">
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>게시일시</th>
+                <th>수정일시</th>
+                <th>조회수</th>
+                <th>결과</th>
+            </tr>
+        </thead>
+        <tbody class="notice-lists">
+            <tr>
+                <td><span>중요(배지)</span></td>
+                <td><a href="#">중요 공지 제목</a></td>
+                <td>2026-03-21</td>
+                <td>2026-03-23</td>
+                <td>3,021</td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td><span>설문(배지)</span></td>
+                <td><a href="#">설문 제목</a></td>
+                <td>2026-03-24</td>
+                <td>-</td>
+                <td>4,197</td>
+                <td><button type="button" class="btn-result">확인</button></td>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td><a href="#">일반 공지 제목</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><a href="#">일반 공지 제목</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><a href="#">일반 공지 제목</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><a href="#">일반 공지 제목</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <div class="pagination">
+        <a href="#">&lt;</a>
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&gt;</a>
+
+        <span class="search-label">제목</span>
+        <input type="text" name="keyword">
+        <button type="button" class="search-btn">🔍</button>
+    </div>
+
+</body>
+</html>
