@@ -8,9 +8,16 @@
 <body>
     <div th:replace="fragments/noticeHeader :: notice-page-header"></div>
 
+    <!-- 검색 -->
+    <div class="notice-search">
+        <span class="search-label">제목</span>
+        <input type="text" name="keyword">
+        <button type="button" class="btn-search">🔍</button>
+    </div>
+
+    <!-- 공지 목록 테이블 -->
     <table class="notice-list">
         <thead class="notice-header">
-            
             <tr>
                 <th>분류</th>
                 <th>제목</th>
@@ -19,7 +26,6 @@
                 <th>조회수</th>
             </tr>
         </thead>
-
         <tbody class="notice-lists">
             <tr>
                 <td><span>중요(배지)</span></td>
@@ -28,7 +34,6 @@
                 <td>2026-03-23</td>
                 <td>3,021</td>
             </tr>
-
             <tr>
                 <td><span>일반(배지)</span></td>
                 <td><a href="#">일반 공지 제목</a></td>
@@ -36,7 +41,6 @@
                 <td></td>
                 <td></td>
             </tr>
-
             <tr>
                 <td><span>일반(배지)</span></td>
                 <td><a href="#">일반 공지 제목</a></td>
@@ -44,7 +48,6 @@
                 <td></td>
                 <td></td>
             </tr>
-
             <tr>
                 <td><span>일반(배지)</span></td>
                 <td><a href="#">일반 공지 제목</a></td>
@@ -52,7 +55,6 @@
                 <td></td>
                 <td></td>
             </tr>
-
             <tr>
                 <td><span>일반(배지)</span></td>
                 <td><a href="#">일반 공지 제목</a></td>
@@ -60,7 +62,6 @@
                 <td></td>
                 <td></td>
             </tr>
-
             <tr>
                 <td><span>일반(배지)</span></td>
                 <td><a href="#">일반 공지 제목</a></td>
@@ -71,6 +72,7 @@
         </tbody>
     </table>
 
+    <!-- 페이지네이션 -->
     <div class="pagination">
         <a href="#">&lt;</a>
         <a href="#">1</a>
@@ -80,10 +82,6 @@
         <a href="#">5</a>
         <a href="#">6</a>
         <a href="#">&gt;</a>
-
-        <span class="search-label">제목</span>
-        <input type="text" name="keyword">
-        <button type="button" class="btn-search">🔍</button>
     </div>
 
 </body>
