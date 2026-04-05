@@ -7,16 +7,16 @@
 </head>
 <body>
 
-    
+    <!-- 상단 -->
     <div class="result-top">
-        <h2>설문 결과</h2>
+        <h2>투표 결과</h2>
         <div class="result-top-btn">
             <button type="button" class="btn-download">다운로드</button>
             <button type="button" class="btn-delete">삭제</button>
         </div>
     </div>
 
-    
+    <!-- 설문 정보 -->
     <div class="survey-meta">
         <span class="survey-title">설문 제목</span>
         <div class="survey-stats">
@@ -27,7 +27,7 @@
 
     <hr>
 
-    
+    <!-- 문항 1 결과 -->
     <div class="question-result">
         <h4>1. 첫 번째 문항</h4>
         <div class="chart-area">
@@ -37,7 +37,7 @@
 
     <hr>
 
-    
+    <!-- 문항 2 결과 -->
     <div class="question-result">
         <h4>2. 두 번째 문항</h4>
         <div class="chart-area">
