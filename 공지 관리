@@ -8,12 +8,20 @@
 <body>
     <div th:replace="fragments/noticeHeader :: notice-page-header"></div>
 
-    
+    <!-- 상단 버튼 및 검색 -->
     <div class="notice-admin-top">
-        <button type="button" class="btn-survey">설문</button>
-        <button type="button" class="btn-write">작성하기</button>
+        <div>
+            <button type="button" class="btn-survey">설문</button>
+            <button type="button" class="btn-write">작성하기</button>
+        </div>
+        <div class="notice-search">
+            <span class="search-label">제목</span>
+            <input type="text" name="keyword">
+            <button type="button" class="btn-search">🔍</button>
+        </div>
     </div>
 
+    <!-- 공지 목록 테이블 -->
     <table class="notice-list">
         <thead class="notice-header">
             <tr>
@@ -34,7 +42,6 @@
                 <td>3,021</td>
                 <td></td>
             </tr>
-            
             <tr>
                 <td><span>설문(배지)</span></td>
                 <td><a href="#">설문 제목</a></td>
@@ -43,7 +50,6 @@
                 <td>4,197</td>
                 <td><button type="button" class="btn-result">확인</button></td>
             </tr>
-            
             <tr>
                 <td>1</td>
                 <td><a href="#">일반 공지 제목</a></td>
@@ -79,7 +85,7 @@
         </tbody>
     </table>
 
-    
+    <!-- 페이지네이션 -->
     <div class="pagination">
         <a href="#">&lt;</a>
         <a href="#">1</a>
@@ -89,10 +95,6 @@
         <a href="#">5</a>
         <a href="#">6</a>
         <a href="#">&gt;</a>
-
-        <span class="search-label">제목</span>
-        <input type="text" name="keyword">
-        <button type="button" class="search-btn">🔍</button>
     </div>
 
 </body>
