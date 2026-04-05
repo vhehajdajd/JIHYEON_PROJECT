@@ -22,7 +22,7 @@
         <input type="text" id="title" name="title">
     </div>
 
-    <!-- 본문 영역 (나중에 에디터 붙일 자리) -->
+    <!-- 본문 영역 -->
     <div class="notice-content-wrap">
         <textarea name="content" class="notice-content"></textarea>
     </div>
