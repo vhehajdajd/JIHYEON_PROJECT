@@ -4,80 +4,192 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지 관리</title>
+    <style>
+        /* 상단 */
+        .notice-admin-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .notice-admin-top-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-write {
+            background: #3b4169;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 16px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .notice-search {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .notice-search input {
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            font-size: 13px;
+        }
+
+        .btn-search {
+            border: 1px solid #ddd;
+            background: white;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        /* 목록 테이블 */
+        .notice-list {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .notice-list th {
+            background: #e8e8e8;
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .notice-list td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            font-size: 13px;
+        }
+
+        .notice-list td:first-child {
+            text-align: center;
+            width: 80px;
+        }
+
+        .notice-list td:nth-child(3),
+        .notice-list td:nth-child(4),
+        .notice-list td:nth-child(5) {
+            text-align: center;
+            width: 120px;
+        }
+
+        .notice-list td a {
+            text-decoration: none;
+            color: #222;
+        }
+
+        /* 배지 */
+        .badge-important span { background-color: rgb(174, 34, 41); border-radius: 15px; padding: 2px 10px; font-size: 11px; color: white; }
+        .badge-facility span  { background-color: rgb(201, 106, 37); border-radius: 15px; padding: 2px 10px; font-size: 11px; color: white; }
+        .badge-safety span    { background-color: rgb(39, 139, 88); border-radius: 15px; padding: 2px 10px; font-size: 11px; color: white; }
+        .badge-normal span    { background-color: rgb(59, 65, 105); border-radius: 15px; padding: 2px 10px; font-size: 11px; color: white; }
+
+        /* 페이지네이션 */
+        .bottom-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 6px;
+        }
+
+        .pagination a {
+            text-decoration: none;
+            color: #333;
+            padding: 4px 10px;
+            font-size: 13px;
+        }
+
+        .pagination a:hover { color: #3b4169; }
+
+        .bottom-search {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            position: absolute;
+            right: 0;
+        }
+
+        .bottom-search input {
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            font-size: 13px;
+        }
+    </style>
 </head>
 <body>
     <div th:replace="fragments/noticeHeader :: notice-page-header"></div>
 
-    <!-- 상단 버튼 및 검색 -->
+    <!-- 상단 -->
     <div class="notice-admin-top">
-        <div>
-            <button type="button" class="btn-survey">설문</button>
+        <div></div>
+        <div class="notice-admin-top-right">
             <button type="button" class="btn-write">작성하기</button>
-        </div>
-        <div class="notice-search">
-            <span class="search-label">제목</span>
-            <input type="text" name="keyword">
-            <button type="button" class="btn-search">🔍</button>
         </div>
     </div>
 
     <!-- 공지 목록 테이블 -->
     <table class="notice-list">
-        <thead class="notice-header">
+        <thead>
             <tr>
-                <th>번호</th>
+                <th>분류</th>
                 <th>제목</th>
                 <th>게시일시</th>
                 <th>수정일시</th>
                 <th>조회수</th>
-                <th>결과</th>
             </tr>
         </thead>
-        <tbody class="notice-lists">
+        <tbody>
             <tr>
-                <td><span>중요(배지)</span></td>
+                <td class="badge-important"><span>중요</span></td>
                 <td><a href="#">중요 공지 제목</a></td>
                 <td>2026-03-21</td>
                 <td>2026-03-23</td>
                 <td>3,021</td>
-                <td></td>
             </tr>
             <tr>
-                <td><span>설문(배지)</span></td>
-                <td><a href="#">설문 제목</a></td>
-                <td>2026-03-24</td>
-                <td>-</td>
-                <td>4,197</td>
-                <td><button type="button" class="btn-result">확인</button></td>
-            </tr>
-            <tr>
-                <td>1</td>
+                <td class="badge-normal"><span>일반</span></td>
                 <td><a href="#">일반 공지 제목</a></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
             </tr>
             <tr>
-                <td>2</td>
-                <td><a href="#">일반 공지 제목</a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td><a href="#">일반 공지 제목</a></td>
-                <td></td>
+                <td class="badge-safety"><span>안전</span></td>
+                <td><a href="#">안전 공지 제목</a></td>
                 <td></td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
-                <td>4</td>
+                <td class="badge-facility"><span>시설</span></td>
+                <td><a href="#">시설 공지 제목</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="badge-normal"><span>일반</span></td>
                 <td><a href="#">일반 공지 제목</a></td>
                 <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="badge-normal"><span>일반</span></td>
+                <td><a href="#">일반 공지 제목</a></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -85,16 +197,23 @@
         </tbody>
     </table>
 
-    <!-- 페이지네이션 -->
-    <div class="pagination">
-        <a href="#">&lt;</a>
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&gt;</a>
+    <!-- 페이지네이션 + 검색 -->
+    <div class="bottom-wrap">
+        <div class="pagination">
+            <a href="#">&lt;</a>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&gt;</a>
+        </div>
+        <div class="bottom-search">
+            <span>제목</span>
+            <input type="text" name="keyword">
+            <button type="button" class="btn-search">🔍</button>
+        </div>
     </div>
 
 </body>
