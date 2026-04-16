@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
+@Getter     //private이라 값을 못 건듦 → 게터(값 꺼냄) 세터(값 수정): 값 꺼내고 넣는 통로
 @Setter
 @Entity
 public class Notice {
