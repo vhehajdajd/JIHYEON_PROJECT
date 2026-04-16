@@ -29,19 +29,19 @@
     background: var(--main-navy);
     color: white;
     padding: 10px 12px;
-    font-size: 13px;
+    font-size: 17px;
     text-align: center;
 }
 
 .notice-list td {
     border-bottom: 1px solid var(--border-color);
     padding: 10px 12px;
-    font-size: 13px;
+    font-size: 17px;
 }
 
 .notice-list td:first-child {
     text-align: center;
-    width: 80px;
+    width: 120px;
 }
 
 .notice-list td:nth-child(3),
