@@ -1,6 +1,9 @@
 package com.hometalk.onepass.notice.repository;
 
 
-public interface NoticeRepository{
+import com.hometalk.onepass.notice.entity.Notice;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface NoticeRepository extends JpaRepository<Notice,Long> {
 
 }

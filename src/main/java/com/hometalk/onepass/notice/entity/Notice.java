@@ -1,6 +1,7 @@
 package com.hometalk.onepass.notice.entity;
 
 import com.hometalk.onepass.auth.entity.User;
+import com.hometalk.onepass.common.entity.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +9,7 @@ import lombok.Setter;
 @Getter     //private이라 값을 못 건듦 → 게터(값 꺼냄) 세터(값 수정): 값 꺼내고 넣는 통로
 @Setter
 @Entity
-public class Notice {
+public class Notice extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,5 +1,7 @@
 package com.hometalk.onepass.notice.entity;
 
-public class ReadLog {
+import com.hometalk.onepass.common.entity.BaseTimeEntity;
+
+public class ReadLog extends BaseTimeEntity {
 
 }

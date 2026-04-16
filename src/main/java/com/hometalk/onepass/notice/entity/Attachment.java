@@ -1,6 +1,7 @@
 package com.hometalk.onepass.notice.entity;
 
 
+import com.hometalk.onepass.common.entity.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Attachment {
+public class Attachment extends BaseTimeEntity {    // 상속하고 있기 때문에 createdAt과 updatedAt은 작성할 필요 없음
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)     // DB가 자동으로 ID 숫자를 1씩 올림
@@ -17,7 +18,7 @@ public class Attachment {
 
     @ManyToOne(fetch = FetchType.LAZY) // 첨부파일(N) : 공지 (1)
     @JoinColumn(name = "notice_id")
-    private Notice notice;  // 어느 공지에 출력될 첨부파일인지
+    private Notice notice;       // 어느 공지에 출력될 첨부파일인지
 
     private String fileName;    // 원본 파일 이름
 
