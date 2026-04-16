@@ -10,7 +10,6 @@
     <link rel="stylesheet" th:href="@{/css/notice/notice-common.css}">
     <link rel="stylesheet" th:href="@{/css/notice/noticeDetail.css}">
 </head>
-
 <body>
 
 <div class="main-layout" style="display:flex; min-height:100vh;">
@@ -30,6 +29,7 @@
         <!-- 본문 -->
         <div class="container">
 
+            <!-- 공지 정보 -->
             <table class="notice-table">
                 <tr>
                     <td th:class="'badge-' + ${notice.badge != null ? notice.badge.name().toLowerCase() : 'normal'}">
@@ -44,32 +44,19 @@
                 </tr>
             </table>
 
-            <div class="admin-buttons">
-                <a th:href="@{/notice}" class="btn-list">← 뒤로가기</a>
-                <a th:href="@{/notice/{id}/edit(id=${notice.id})}" class="btn-edit" sec:authorize="hasRole('ADMIN')">수정</a>
-                <form th:action="@{/notice/{id}/delete(id=${notice.id})}" method="post" style="display:inline;" sec:authorize="hasRole('ADMIN')">
-                    <button type="button" class="btn-delete"
-                            onclick="if(confirm('삭제하시겠습니까?')) this.form.submit()">삭제</button>
-                </form>
-            </div>
-
             <!-- 본문 내용 -->
             <div class="notice-box">
                 <p th:text="${notice.content}" style="white-space: pre-line;"></p>
             </div>
 
-            <!-- ✅ 첨부파일 영역 -->
-            <div th:if="${attachments != null and !attachments.isEmpty()}"
-                 style="margin: 12px 0; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px;">
-                <p style="font-size: 13px; font-weight: 600; margin-bottom: 8px; color: var(--main-navy);">📎 첨부파일</p>
-                <ul style="list-style: none; display: flex; flex-direction: column; gap: 4px;">
-                    <li th:each="file : ${attachments}">
-                        <a th:href="@{/notice/download/{id}(id=${file.id})}"
-                           th:text="${file.fileName}"
-                           style="font-size: 13px; color: #333; text-decoration: none;">
-                        </a>
-                    </li>
-                </ul>
+            <!-- 첨부파일 -->
+            <div class="attachment-box" th:if="${attachments != null && !attachments.isEmpty()}">
+                <div class="attachment-title">📎 첨부파일</div>
+                <div th:each="attachment : ${attachments}">
+                    <a th:href="@{/notice/download/{id}(id=${attachment.id})}"
+                       th:text="${attachment.fileName}"
+                       class="attachment-link"></a>
+                </div>
             </div>
 
             <!-- 이전글/다음글 -->
@@ -109,6 +96,18 @@
                     </th:block>
                 </tr>
             </table>
+
+            <!-- 버튼 -->
+            <div class="admin-buttons">
+                <a th:href="@{/notice}" class="btn-back">← 뒤로가기</a>
+                <div sec:authorize="hasRole('ADMIN')" style="display:flex; gap:8px;">
+                    <a th:href="@{/notice/{id}/edit(id=${notice.id})}" class="btn-edit">수정</a>
+                    <form th:action="@{/notice/{id}/delete(id=${notice.id})}" method="post" style="display:inline;">
+                        <button type="button" class="btn-delete"
+                                onclick="if(confirm('삭제하시겠습니까?')) this.form.submit()">삭제</button>
+                    </form>
+                </div>
+            </div>
 
         </div>
     </div>
